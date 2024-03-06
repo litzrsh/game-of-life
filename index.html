@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Game of life</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="gameOfLife"></div>
+    <script type="text/javascript" src="src/index.js"></script>
+    <script type="text/javascript">
+      window.onload = function () {
+        var game = new Game("#gameOfLife");
+
+        window.start = function () {
+          game.start();
+          document.querySelector("#btnStart").remove();
+          document.querySelector("#btnRandom").remove();
+          __add_button("btnStop", "Stop", window.stop);
+        };
+        window.stop = function () {
+          if (game !== null) {
+            game.dispose();
+            game = new Game("#gameOfLife");
+          }
+          document.querySelector("#btnStop").remove();
+          __add_button("btnStart", "Start", window.start);
+          __add_button("btnRandom", "Random seed", window.random);
+        };
+        window.random = function () {
+          if (game) {
+            game.random();
+          }
+        };
+
+        __add_button("btnStart", "Start", window.start);
+        __add_button("btnRandom", "Random seed", window.random);
+
+        function __add_button(id, text, func) {
+          var button = document.createElement("button");
+          button.id = id;
+          button.type = "button";
+          button.innerHTML = text;
+          button.onclick = func;
+          document.body.append(button);
+        }
+      };
+    </script>
+  </body>
+</html>
