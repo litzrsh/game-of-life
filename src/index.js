@@ -31,24 +31,8 @@ async function render(t) {
     return;
   }
   ctx.clearRect(0, 0, width, height);
-  if (grid === null) {
-    ctx.fillStyle = "#000";
-    ctx.fillRect(0, 0, width, height);
-    for (var i = 10; i < width; i+=10) {
-      ctx.moveTo(i, 0);
-      ctx.lineTo(i, height);
-    }
-    for (var i = 10; i < height; i+=10) {
-      ctx.moveTo(0, i);
-      ctx.lineTo(width, i);
-    }
-    ctx.strokeStyle = "#3b3b3b";
-    ctx.stroke();
-    const dataURL = ctx.getImageData(0, 0, width, height);
-    grid = await createImageBitmap(dataURL);
-  } else {
-    ctx.drawImage(grid, 0, 0, width, height);
-  }
+  ctx.fillStyle = "#000";
+  ctx.fillRect(0, 0, width, height);
   for (var i = 0; i < datas.length; i++) {
     const data = datas[i];
     ctx.fillStyle = "#fff";
