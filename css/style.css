@@ -5,6 +5,7 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  font-size: 14px;
 }
 
 .game-of-life {
@@ -22,12 +23,23 @@ body {
   transform: translate(-50%, -50%);
 }
 
-button {
-  position: absolute;
+.toolbar {
+  position: fixed;
   left: 0;
   top: 0;
+  display: flex;
+  column-gap: 0.25rem;
+  z-index: 1000;
+  padding: 0.5rem;
 }
 
-button + button {
-  top: 30px;
+button {
+  border: 1px solid #878787;
+  background-color: #154080;
+  border-radius: 0.25rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
 }

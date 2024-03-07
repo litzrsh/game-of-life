@@ -159,6 +159,7 @@ class Game {
       clearInterval(this.interval);
       this.interval = null;
     }
+    window.removeEventListener("resize", this.onWindowResizeEventListener);
     this.interval = null;
     this.worker.terminate();
     this.canvas.remove();

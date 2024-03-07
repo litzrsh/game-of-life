@@ -2,15 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0"
+    />
     <title>Game of life</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <div id="toolbar" class="toolbar"></div>
     <div id="gameOfLife"></div>
     <script type="text/javascript" src="src/index.js"></script>
     <script type="text/javascript">
       window.onload = function () {
         var game = new Game("#gameOfLife");
+        var toolbar = document.querySelector("#toolbar");
 
         window.start = function () {
           game.start();
@@ -42,7 +48,7 @@
           button.type = "button";
           button.innerHTML = text;
           button.onclick = func;
-          document.body.append(button);
+          toolbar.append(button);
         }
       };
     </script>
