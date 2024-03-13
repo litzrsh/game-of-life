@@ -31,12 +31,18 @@ async function render(t) {
     return;
   }
   ctx.clearRect(0, 0, width, height);
-  ctx.fillStyle = "#000";
+  ctx.fillStyle = "#fff";
   ctx.fillRect(0, 0, width, height);
   for (var i = 0; i < datas.length; i++) {
     const data = datas[i];
-    ctx.fillStyle = "#fff";
+    ctx.fillStyle = "#000";
     ctx.fillRect(data.x * 10, data.y * 10, 10, 10);
+  }
+  for (var i = 0; i < width; i+=10) {
+    for (var j = 0; j < height; j+=10) {
+      ctx.strokeStyle = "#c3c3c3";
+      ctx.strokeRect(i, j, 10, 10);
+    }
   }
   requestAnimationFrame(render);
 }
